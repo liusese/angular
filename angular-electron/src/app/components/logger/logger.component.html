@@ -1,0 +1,7 @@
+<div *ngIf="logger.loggers?.length > 0">
+  <h1>Loggers Details</h1>
+  <button (click)='logger.clear()'>清空日志</button>
+  <ul>
+    <li *ngFor='let log of logger.loggers; let i = index'>{{i}} -- {{log}}</li>
+  </ul>
+</div>

@@ -1,0 +1,8 @@
+<div  class="panel panel-default">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let user of userService.userList">
+      <span class="badge">{{user['type']}}</span>
+      <a routerLink="/user-details/{{user['id']}}">{{user['name']}}</a>
+    </li>
+  </ul>
+</div>

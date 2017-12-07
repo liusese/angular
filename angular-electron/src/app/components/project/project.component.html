@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+  <table class="table table-bordered table-condensed table-hover">
+    <thead>
+      <tr class="row">
+        <td class="col-xs-1">#</td>
+        <td class="col-xs-1">项目</td>
+        <td class="col-xs-1">客户</td>
+        <td class="col-xs-1">主机厂</td>
+        <td class="col-xs-1">数量</td>
+        <td class="col-xs-1">背景</td>
+        <td class="col-xs-1">技术难点</td>
+        <td class="col-xs-1">开发类别</td>
+        <td class="col-xs-1">产品型号</td>
+        <td class="col-xs-1">重要度</td>
+        <td class="col-xs-1">状态</td>
+        <td class="col-xs-1">开发日期</td>
+        <td class="col-xs-1">目前阶段</td>
+        <td class="col-xs-1">样机要求交付时间</td>
+        <td class="col-xs-1">样机实际交付时间</td>
+        <td class="col-xs-1">详情</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projectService.projectList" class="row">
+        <td class="col-xs-1">{{project['id']}}</td>
+        <td class="col-xs-1">
+          <a routerLink="/project-details/{{project['id']}}">{{project['name']}}</a>
+        </td>
+        <td class="col-xs-1">{{project['client']}}</td>
+        <td class="col-xs-1">{{project['mainFactory']}}</td>
+        <td class="col-xs-1">{{project['count']}}</td>
+        <td class="col-xs-1">{{project['background']}}</td>
+        <td class="col-xs-1">{{project['nodus']}}</td>
+        <td class="col-xs-1">{{project['devType']}}</td>
+        <td class="col-xs-1">{{project['fan']}}</td>
+        <td class="col-xs-1">{{project['importance']}}</td>
+        <td class="col-xs-1">{{project['status']}}</td>
+        <td class="col-xs-1">{{project['createTime']}}</td>
+        <td class="col-xs-1">{{project['progress']}}</td>
+        <td class="col-xs-1">{{project['planDelivery']}}</td>
+        <td class="col-xs-1">{{project['actualDelivery']}}</td>
+        <td class="col-xs-1">{{project['notes']}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

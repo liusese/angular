@@ -1,0 +1,129 @@
+<div *ngIf="projectService.projectInfo">
+  <h1>{{projectService.projectInfo['name']}} 详情</h1>
+  <div>
+    <h2>客户详情表：</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr class="row">
+          <td class="col-xs-1">客户</td>
+          <td class="col-xs-1">联系人</td>
+          <td class="col-xs-1">联系方式</td>
+          <td class="col-xs-1">邮箱</td>
+          <td class="col-xs-1">联系电话</td>
+          <td class="col-xs-1">地址</td>
+          <td>修改</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row">
+          <td class="col-xs-1">{{projectService.projectInfo['client']['name']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['client']['contact']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['client']['phone']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['client']['email']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['client']['tel']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['client']['address']}}</td>
+          <td>修改</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <h2>负责人详情表：</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr class="row">
+          <td class="col-xs-1">负责人</td>
+          <td class="col-xs-1">联系电话</td>
+          <td class="col-xs-1">联系方式</td>
+          <td class="col-xs-1">邮箱</td>
+          <td class="col-xs-1">用户类型</td>
+          <td class="col-xs-1">职位</td>
+          <td class="col-xs-1">所属部门</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row">
+          <td class="col-xs-1">{{projectService.projectInfo['pic']['name']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['pic']['tel']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['pic']['phone']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['pic']['email']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['pic']['type']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['pic']['post']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['pic']['dep']}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>设计者详情表：</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr class="row">
+          <td class="col-xs-1">设计者</td>
+          <td class="col-xs-1">联系电话</td>
+          <td class="col-xs-1">联系方式</td>
+          <td class="col-xs-1">邮箱</td>
+          <td class="col-xs-1">用户类型</td>
+          <td class="col-xs-1">职位</td>
+          <td class="col-xs-1">所属部门</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row">
+          <td class="col-xs-1">{{projectService.projectInfo['designer']['name']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['designer']['tel']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['designer']['phone']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['designer']['email']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['designer']['type']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['designer']['post']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['designer']['dep']}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <h2>风机详情表：</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr class="row">
+          <td class="col-xs-1">风机</td>
+          <td class="col-xs-1">特性</td>
+          <td class="col-xs-1">风量</td>
+          <td class="col-xs-1">静压</td>
+          <td class="col-xs-1">噪声</td>
+          <td class="col-xs-1">功率</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row">
+          <td class="col-xs-1">{{projectService.projectInfo['fan']['name']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['fan']['feature']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['fan']['airVolume']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['fan']['staticPress']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['fan']['noise']}}</td>
+          <td class="col-xs-1">{{projectService.projectInfo['fan']['power']}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngFor="let scheme of projectService.projectInfo['scheme']; let idx = index">
+    <h2>项目方案#{{idx + 1}} 详情表：</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr class="row">
+          <td class="col-xs-1">方案阶段</td>
+          <td class="col-xs-1">计划时间</td>
+          <td class="col-xs-1">实际时间</td>
+          <td class="col-xs-1">备注</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row" *ngFor="let node of scheme" 
+        [hidden]="node['name'] == '成本核算' && loginService.loginUser['type'] != 'SU' && loginService.loginUser['type'] != 'Admin'">
+          <td [ngClass]="{'col-xs-1': node['active'] == 0, 'col-xs-1 success': node['active'] == 1}">{{node['name']}}</td>
+          <td [ngClass]="{'col-xs-1': node['active'] == 0, 'col-xs-1 success': node['active'] == 1}">{{node['plan']}}</td>
+          <td [ngClass]="{'col-xs-1': node['active'] == 0, 'col-xs-1 success': node['active'] == 1}">{{node['actual']}}</td>
+          <td [ngClass]="{'col-xs-1': node['active'] == 0, 'col-xs-1 success': node['active'] == 1}">{{node['notes']}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

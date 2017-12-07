@@ -1,0 +1,34 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <ul class="nav nav-pills nav-justified" *ngIf="loginService.isLogin">
+  <li>
+    <a routerLink='/main'>MAIN</a>
+  </li>
+  <li>
+    <a routerLink='/project'>PROJECT</a>
+  </li>
+  <li>
+    <a routerLink='/user'>USER</a>
+  </li>
+</ul> -->
+<!-- <div class="btn-group btn-group-justified" role="group" aria-label="..." *ngIf="loginService.isLogin"> -->
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  <a class="btn btn-primary" role="button" routerLink='/main'>MAIN</a>
+  <!-- <a class="btn btn-primary" role="button" routerLink='/project'>PROJECT</a> -->
+  <a class="btn btn-primary" role="button" routerLink='/user'>USER</a>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Other Option
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li>
+        <a routerLink='/project'>PROJECT</a>
+      </li>
+      <li>
+        <a routerLink='/login'>LOGIN</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<router-outlet></router-outlet>
+<!-- <app-logger></app-logger> -->
