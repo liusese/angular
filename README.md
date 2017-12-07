@@ -1,2 +1,2 @@
 # angular
-angular + electron + gulp + bootstrap
+angular learn
